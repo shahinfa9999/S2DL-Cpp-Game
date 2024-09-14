@@ -1,0 +1,23 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build SDL2",
+            "type": "shell",
+            "command": "/usr/bin/g++",
+            "args": [
+                "-I", "/opt/homebrew/Cellar/sdl2/2.30.7/include/SDL2",
+                "-L", "/opt/homebrew/Cellar/sdl2/2.30.7/lib",
+                "-lSDL2",
+                "main.cpp",
+                "-o", "sdl_game"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"],
+            "detail": "Build the SDL2 project using g++"
+        }
+    ]
+}
