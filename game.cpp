@@ -1,5 +1,5 @@
 #include "game.h"
-
+#include "texture_manager.h"
 SDL_Texture* playertex;
 SDL_Rect srcR , destR;
 
@@ -38,9 +38,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
         
         isRunning = true;
 
-        SDL_Surface* tempsurface = IMG_Load("player.png");
-        playertex = SDL_CreateTextureFromSurface(renderer,tempsurface);
-        SDL_FreeSurface(tempsurface);
+        playertex=TextureManager::LoadTexture("player.png",renderer);
     }
     else
     {
@@ -51,8 +49,9 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 void Game::update()
 {
     count++;
-    destR.h=32;
-    destR.w=32;
+    destR.h=64;
+    destR.w=64;
+    destR.x = count;
 
     std::cout << count << std::endl;
     // Update game state here
