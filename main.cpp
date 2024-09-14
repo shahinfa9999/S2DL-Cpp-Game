@@ -3,7 +3,7 @@
 compile: g++ -o sdl_game main.cpp game.cpp -I/opt/homebrew/include/SDL2 -L/opt/homebrew/lib -lSDL2
 g++ -std=c++11 -o sdl_game main.cpp game.cpp -I/opt/homebrew/include/SDL2 -L/opt/homebrew/lib -lSDL2 -lSDL2_image
 g++ -std=c++11 -o sdl_game main.cpp game.cpp texture_manager.cpp -I/opt/homebrew/include/SDL2 -L/opt/homebrew/lib -lSDL2 -lSDL2_image
-
+g++ -std=c++11 -o sdl_game main.cpp game.cpp texture_manager.cpp gameobject.cpp -I/opt/homebrew/include/SDL2 -L/opt/homebrew/lib -lSDL2 -lSDL2_image
 
 run: ./sdl_game
 */
