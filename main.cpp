@@ -19,7 +19,7 @@ int main (int argc, const char * argv[])
     int FrameTime;
     
     game = new Game();
-    game ->init("trial", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,800,600,false);
+    game ->init("trial", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,800,640,false);
     while (game->running())
     {
         framestart = SDL_GetTicks();

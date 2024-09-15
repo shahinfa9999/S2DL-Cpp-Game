@@ -1,11 +1,16 @@
 #include "game.h"
 #include "texture_manager.h"
 #include "gameobject.h"
+#include "Map.h"
+#include "Enemy.h"
 
 GameObject* player;
-GameObject* enemy;
+Enemy* enemy;
+Map* map;
 
-Game::Game() : window(nullptr), renderer(nullptr), isRunning(false)
+SDL_Renderer* Game::renderer  = nullptr;
+
+Game::Game() : window(nullptr), isRunning(false)
 {}
 
 Game::~Game()
@@ -39,8 +44,9 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
         }
         
         isRunning = true;
-        player = new GameObject("player.png",renderer,0,0);
-        enemy = new GameObject("enemy.png",renderer,40,40);
+        player = new GameObject("/MapAssets/Player_1.png",0,0);
+        enemy = new Enemy("enemy.png", 400, 320,this);
+        map = new Map();
 
     }
     else
@@ -52,7 +58,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 void Game::update()
 {
     player->update();
-    enemy->update();
+    enemy->update(player);
 
     std::cout << count << std::endl;
     // Update game state here
@@ -62,6 +68,7 @@ void Game::render()
 {
     SDL_RenderClear(renderer);   // Clear the renderer
     // Render game objects here
+    map->DrawMap();
     player->Render();
     enemy->Render();
     SDL_RenderPresent(renderer); // Present the renderer

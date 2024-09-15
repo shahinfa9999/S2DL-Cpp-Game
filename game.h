@@ -17,13 +17,16 @@ public:
     void render();
     void clean();
 
+    static SDL_Renderer* renderer;
+
     bool running() { return isRunning; }
+    bool isRunning;
 
 private:
     int count=0;
-    bool isRunning;
+    
     SDL_Window *window;
-    SDL_Renderer *renderer;
+    
 };
 
 #endif  // GAME_H
