@@ -85,5 +85,13 @@ void Map::DrawMap()
         }
     }
 }
+bool Map::isWaterTile(int x, int y) {
+    int row = y / 32;
+    int col = x / 32;
+    if (row >= 0 && row < 20 && col >= 0 && col < 25) {
+        return map[row][col] == 0;  // Check if the tile is water (0)
+    }
+    return false;
+}
 
 

@@ -1,9 +1,6 @@
 #include "game.h"
 /*
-compile: g++ -o sdl_game main.cpp game.cpp -I/opt/homebrew/include/SDL2 -L/opt/homebrew/lib -lSDL2
-g++ -std=c++11 -o sdl_game main.cpp game.cpp -I/opt/homebrew/include/SDL2 -L/opt/homebrew/lib -lSDL2 -lSDL2_image
-g++ -std=c++11 -o sdl_game main.cpp game.cpp texture_manager.cpp -I/opt/homebrew/include/SDL2 -L/opt/homebrew/lib -lSDL2 -lSDL2_image
-g++ -std=c++11 -o sdl_game main.cpp game.cpp texture_manager.cpp gameobject.cpp -I/opt/homebrew/include/SDL2 -L/opt/homebrew/lib -lSDL2 -lSDL2_image
+compile: g++ -std=c++11 -o sdl_game main.cpp game.cpp texture_manager.cpp gameobject.cpp Map.cpp Enemy.cpp -I/opt/homebrew/include/SDL2 -L/opt/homebrew/lib -lSDL2 -lSDL2_image
 
 run: ./sdl_game
 */
@@ -19,7 +16,7 @@ int main (int argc, const char * argv[])
     int FrameTime;
     
     game = new Game();
-    game ->init("trial", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,800,640,false);
+    game ->init("GAME", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,800,640,false);
     while (game->running())
     {
         framestart = SDL_GetTicks();

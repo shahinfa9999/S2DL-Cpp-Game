@@ -45,7 +45,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
         
         isRunning = true;
         player = new GameObject("/MapAssets/Player_1.png",0,0);
-        enemy = new Enemy("enemy.png", 400, 320,this);
+        enemy = new Enemy("enemy.png", 800, 640,this);
         map = new Map();
 
     }
